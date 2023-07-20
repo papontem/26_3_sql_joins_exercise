@@ -4,9 +4,21 @@ CREATE DATABASE joins_exercise;
 
 \c joins_exercise
 
-CREATE TABLE owners (id SERIAL PRIMARY KEY, first_name TEXT, last_name TEXT);
+CREATE TABLE owners 
+(
+    id SERIAL PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT
+);
 
-CREATE TABLE vehicles (id SERIAL PRIMARY KEY, make TEXT, model TEXT, year INTEGER, price REAL, owner_id INTEGER REFERENCES owners (id));
+CREATE TABLE vehicles 
+(
+    id SERIAL PRIMARY KEY,
+    make TEXT, model TEXT,
+    year INTEGER,
+    price REAL,
+    owner_id INTEGER REFERENCES owners (id)
+);
 
 INSERT INTO owners (first_name, last_name) VALUES ('Bob', 'Hope');
 INSERT INTO owners (first_name, last_name) VALUES ('Jane', 'Smith');
